@@ -13,6 +13,25 @@ void print_8bit_binary(unsigned char n) {
     printf("\n");
 }
 
+
+
+void print_binary(unsigned int n) {
+    int i;
+    // Assuming we're working with 8 bits; for larger numbers, you can adjust this.
+    int bits = sizeof(n) * 8;  // Calculate number of bits in the integer type
+
+    for (i = bits - 1; i >= 0; i--) {
+        // Print each bit
+        printf("%d", (n >> i) & 1);
+
+        // Add a space after every 4 bits for readability
+        if (i % 4 == 0) {
+            printf(" ");
+        }
+    }
+    printf("\n");
+}
+
 int main() {
     unsigned int a = 5;  // binary: 0000 0101
     unsigned int b = 9;  // binary: 0000 1001
@@ -20,6 +39,8 @@ int main() {
     printf("the value of a = %d \n", a);
     printf("the value of a in binary is \n");
     print_8bit_binary(a);
+    printf("the value of a in binary 32 bits is \n");
+    print_binary(a);
     printf("the value of b = %d \n", b);
     printf("the value of b in binary is \n");
     print_8bit_binary(b);
